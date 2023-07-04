@@ -17,6 +17,7 @@ namespace TicTacToeWinFormsInterface
             Application.SetCompatibleTextRenderingDefault(false);
             UserInterfaceManager userInterfaceManager = new UserInterfaceManager();
             userInterfaceManager.SetSettings();
+            userInterfaceManager.PlayGame();
         }
     }
 }

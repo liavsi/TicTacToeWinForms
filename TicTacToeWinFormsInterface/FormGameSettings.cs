@@ -55,7 +55,7 @@ namespace TicTacToeWinFormsInterface
         {
             get
             {
-                return checkBoxPlayer2.Enabled ? 2 : 1;
+                return checkBoxPlayer2.Checked ? 2 : 1;
             }
         }
 

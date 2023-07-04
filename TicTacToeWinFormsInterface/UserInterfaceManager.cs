@@ -28,14 +28,35 @@ namespace TicTacToeWinFormsInterface
                 m_Logics = new LogicManager(boardSize, m_GameSetting.NumOfPlayers,
                    player1Name, player2Name);
                 m_BoardUserInterface = new FormTicTacToeMisere(boardSize,player1Name, player2Name);
+                m_Logics.SymbolePlaced += m_BoardUserInterface.Symbole_Placed;
+                signAllButtons();
             }
         }
 
+        
+        private void signAllButtons()
+        {
+            ButtonWithIndex[,] boardOfButton = m_BoardUserInterface.ButtonBoard;
+            for(int i = 0; i < m_Logics.BoardSize; i++)
+            {
+                for (int j = 0; j < m_Logics.BoardSize; j++)
+                {
+                    boardOfButton[i, j].Click += ButtonWithIndex_Clicked;
+                }
+            }
+        }
 
+        private void ButtonWithIndex_Clicked(object sender, EventArgs e)
+        {
+            ButtonWithIndex button = sender as ButtonWithIndex;
+            m_Logics.PlayersMove(button.Row, button.Column);
+        }
 
         public void PlayGame()
         {
             m_BoardUserInterface.ShowDialog();
         }
+
+        
     }
 }

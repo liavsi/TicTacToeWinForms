@@ -10,6 +10,7 @@ namespace TicTacToeLogicManager
         private Player m_Player1, m_Player2;
         private Player m_CurrentPlayer;
         private TicTacToeBoard m_Board;
+        public event Action<int, int, eCellValue> SymbolePlaced;
 
         public LogicManager(int i_sizeOfBoard, int i_numOfPlayers, string i_Player1Name, string i_Player2Name = "Computer")
         {
@@ -60,6 +61,13 @@ namespace TicTacToeLogicManager
                 return m_Board;
             }
         }
+        public int BoardSize
+        {
+            get
+            {
+                return m_Board.Size;
+            }
+        }
         public Player GetPlayerBySymbole(eCellValue i_symbole)
         {
             Player player = null;
@@ -75,12 +83,13 @@ namespace TicTacToeLogicManager
 
             return player;
         }
-        internal bool PlayersMove(int i_iIndex, int i_jIndex)
+        public bool PlayersMove(int i_iIndex, int i_jIndex)
         {
             bool isSymbolePlaced = m_Board.PlaceSymbole(m_CurrentPlayer.Symbole, i_iIndex, i_jIndex);
 
             if (isSymbolePlaced)
             {
+                onSymbolePlaced(i_iIndex, i_jIndex, m_CurrentPlayer.Symbole);
                 if (m_CurrentPlayer == m_Player1)
                 {
                     m_CurrentPlayer = m_Player2;
@@ -92,6 +101,10 @@ namespace TicTacToeLogicManager
             }
 
             return isSymbolePlaced;
+        }
+        protected virtual void onSymbolePlaced(int i_iIndex, int i_jIndex, eCellValue i_Symbole)
+        {
+            SymbolePlaced?.Invoke(i_iIndex, i_jIndex, i_Symbole);
         }
         internal bool ComputersMove()
         {

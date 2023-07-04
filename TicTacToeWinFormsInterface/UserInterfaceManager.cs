@@ -29,7 +29,9 @@ namespace TicTacToeWinFormsInterface
                 m_Logics = new LogicManager(boardSize, m_GameSetting.NumOfPlayers,
                    player1Name, player2Name);
                 m_BoardUserInterface = new FormTicTacToeMisere(boardSize,player1Name, player2Name);
-                m_Logics.SymbolePlaced += m_BoardUserInterface.Symbole_Placed;
+                m_Logics.SymbolePlacedOnBoard += m_BoardUserInterface.Symbole_Placed;
+                m_Logics.TurnChanged += m_BoardUserInterface.CurrentPlayer_Changed;
+                m_Logics.ScoreChanged += m_BoardUserInterface.Score_Changed;
                 signAllButtons();
             }
         }

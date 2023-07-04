@@ -82,129 +82,151 @@ namespace TicTacToeLogicManager
         }
         public eCellValue GetWinner()
         {
-            eCellValue symbolOfWinner = eCellValue.Empty;
-            bool isWinner = false;
-            int counterX = 0, counterO = 0;
+            eCellValue rows, cols, leftToRight,rightToLeft, symbolOfWinner;
             // Check rows
-            CheckWinnInARow(ref isWinner, ref counterX, ref counterO, ref symbolOfWinner);
-            //check columns
-            CheckWinnInAColumn(ref isWinner, ref counterX, ref counterO, ref symbolOfWinner);
-            // Check diagonal top-left to bottom-right
-            CheckWinnCrossRightToLeft(ref isWinner, ref counterX, ref counterO, ref symbolOfWinner);
-            //check diagonal top-right to bottom-left
-            CheckWinnCrossLeftToRight(ref isWinner, ref counterX, ref counterO, ref symbolOfWinner);
-
+            rows = CheckWinnInARow();
+            cols = CheckWinnInAColumn();
+            leftToRight = CheckWinnCrossLeftToRight();
+            rightToLeft = CheckWinnCrossRightToLeft();
+            HashSet<eCellValue> symboleSet = new HashSet<eCellValue>();
+            symboleSet.Add(rows);
+            symboleSet.Add(cols);    
+            symboleSet.Add(leftToRight);
+            symboleSet.Add(rightToLeft);
+            if(symboleSet.Contains(eCellValue.X))
+            {
+                symbolOfWinner = eCellValue.X;
+            }
+            else if(symboleSet.Contains(eCellValue.O))
+            {
+                symbolOfWinner = eCellValue.O;
+            }
+            else
+            {
+                symbolOfWinner = eCellValue.Empty;
+            }
             // X = x is the winner | O = o is the winner | Empty = no winner
             return symbolOfWinner;
         }
-        private void CheckWinnInARow(ref bool io_isWinner, ref int io_counterX, ref int io_counterO, ref eCellValue io_symbolOfWinner)
+        private eCellValue CheckWinnInARow()
         {
-            for (int i = 0; i < m_size && !io_isWinner; i++)
+            eCellValue winnerSymbole = eCellValue.Empty;
+            int counterX = 0, counterO = 0;
+            bool isWinner = false;
+            for (int i = 0; i < m_size && !isWinner; i++)
             {
                 for (int j = 0; j < m_size; j++)
                 {
                     if (m_Board[i, j] == eCellValue.X)
                     {
-                        io_counterX++;
+                        counterX++;
                     }
                     else if (m_Board[i, j] == eCellValue.O)
                     {
-                        io_counterO++;
+                        counterO++;
                     }
                 }
-                if (io_counterO == m_size)
+                if (counterO == m_size)
                 {
-                    io_isWinner = true;
-                    io_symbolOfWinner = eCellValue.X;
+                    isWinner = true;
+                    winnerSymbole = eCellValue.X;
                 }
-                else if (io_counterX == m_size)
+                else if (counterX == m_size)
                 {
-                    io_isWinner = true;
-                    io_symbolOfWinner = eCellValue.O;
+                    isWinner = true;
+                    winnerSymbole = eCellValue.O;
                 }
-                io_counterO = io_counterX = 0;
+                counterO = counterX = 0;
             }
+            return winnerSymbole;
         }
-        private void CheckWinnCrossRightToLeft(ref bool io_isWinner, ref int io_counterX, ref int io_counterO, ref eCellValue io_symbolOfWinner)
+        private eCellValue CheckWinnCrossLeftToRight()
         {
-            for (int i = 0; i < m_size && !io_isWinner; i++)
+            eCellValue winnerSymbole = eCellValue.Empty;
+            int counterX = 0, counterO = 0;
+            for (int i = 0; i < m_size ; i++)
             {
 
                 if (m_Board[i, i] == eCellValue.X)
                 {
-                    io_counterX++;
+                    counterX++;
                 }
                 else if (m_Board[i, i] == eCellValue.O)
                 {
-                    io_counterO++;
+                    counterO++;
                 }
             }
-            if (io_counterO == m_size)
+            if (counterX == m_size)
             {
-                io_isWinner = true;
-                io_symbolOfWinner = eCellValue.X;
+                winnerSymbole = eCellValue.O;
             }
-            else if (io_counterX == m_size)
+            else if (counterO == m_size)
             {
-                io_isWinner = true;
-                io_symbolOfWinner = eCellValue.O;
+                winnerSymbole = eCellValue.X;
             }
-            io_counterO = io_counterX = 0;
+
+            return winnerSymbole;
         }
-        private void CheckWinnCrossLeftToRight(ref bool io_isWinner, ref int io_counterX, ref int io_counterO, ref eCellValue io_symbolOfWinner)
+        private eCellValue CheckWinnCrossRightToLeft()
         {
-            for (int i = m_size - 1; i >= 0 && !io_isWinner; i--)
+            eCellValue winnerSymbole = eCellValue.Empty;
+            int counterX = 0, counterO = 0;
+            for (int i = 0; i < m_size; i++)
             {
 
-                if (m_Board[i, i] == eCellValue.X)
+                if (m_Board[i, m_size - i - 1] == eCellValue.X)
                 {
-                    io_counterX++;
+                    counterX++;
                 }
-                else if (m_Board[i, i] == eCellValue.O)
+                else if (m_Board[i, m_size - i - 1] == eCellValue.O)
                 {
-                    io_counterO++;
+                    counterO++;
                 }
             }
-            if (io_counterO == m_size)
+            if (counterO == m_size)
             {
-                io_isWinner = true;
-                io_symbolOfWinner = eCellValue.X;
+                winnerSymbole = eCellValue.X;
             }
-            else if (io_counterX == m_size)
+            else if (counterX == m_size)
             {
-                io_isWinner = true;
-                io_symbolOfWinner = eCellValue.O;
+                winnerSymbole = eCellValue.O;
             }
-            io_counterO = io_counterX = 0;
+            return winnerSymbole;
         }
-        private void CheckWinnInAColumn(ref bool io_isWinner, ref int io_counterX, ref int io_counterO, ref eCellValue io_symbolOfWinner)
+        private eCellValue CheckWinnInAColumn()
         {
-            for (int i = 0; i < m_size && !io_isWinner; i++)
+
+            eCellValue winnerSymbole = eCellValue.Empty;
+            int counterX = 0, counterO = 0;
+            bool isWinner = false;
+            for (int i = 0; i < m_size && !isWinner; i++)
             {
                 for (int j = 0; j < m_size; j++)
                 {
                     if (m_Board[j, i] == eCellValue.X)
                     {
-                        io_counterX++;
+                        counterX++;
                     }
                     else if (m_Board[j, i] == eCellValue.O)
                     {
-                        io_counterO++;
+                        counterO++;
                     }
                 }
-                if (io_counterO == m_size)
+                if (counterO == m_size)
                 {
-                    io_isWinner = true;
-                    io_symbolOfWinner = eCellValue.X;
+                    isWinner = true;
+                    winnerSymbole = eCellValue.X;
                 }
-                else if (io_counterX == m_size)
+                else if (counterX == m_size)
                 {
-                    io_isWinner = true;
-                    io_symbolOfWinner = eCellValue.O;
+                    isWinner = true;
+                    winnerSymbole = eCellValue.O;
                 }
-                io_counterO = io_counterX = 0;
+                counterO = counterX = 0;
             }
+            return winnerSymbole;
         }
+        
         public eCellValue[,] BoardState
         {
             get

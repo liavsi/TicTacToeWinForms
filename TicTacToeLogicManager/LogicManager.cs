@@ -10,12 +10,14 @@ namespace TicTacToeLogicManager
         private Player m_Player1, m_Player2;
         private Player m_CurrentPlayer;
         private TicTacToeBoard m_Board;
-        public event Action<int, int, eCellValue> SymbolePlaced;
+        public event Action<int, int, eCellValue> SymbolePlacedOnBoard;
+        public event Action<Player> TurnChanged;
+        public event Action<Player> ScoreChanged;
 
         public LogicManager(int i_sizeOfBoard, int i_numOfPlayers, string i_Player1Name, string i_Player2Name = "Computer")
         {
             m_Board = new TicTacToeBoard(i_sizeOfBoard);
-            m_Board.SymbolePlaced += this.onSymbolePlaced;
+            m_Board.SymbolePlaced += this.OnSymbolePlaced;
             const bool v_isNotBot = false;
 
             if (i_numOfPlayers == 1)
@@ -98,13 +100,22 @@ namespace TicTacToeLogicManager
                 {
                     m_CurrentPlayer = m_Player1;
                 }
+                OnTurnChange();
             }
 
             return isSymbolePlaced;
         }
-        protected virtual void onSymbolePlaced(int i_iIndex, int i_jIndex, eCellValue i_Symbole)
+        protected virtual void OnSymbolePlaced(int i_iIndex, int i_jIndex, eCellValue i_Symbole)
         {
-            SymbolePlaced?.Invoke(i_iIndex, i_jIndex, i_Symbole);
+            SymbolePlacedOnBoard?.Invoke(i_iIndex, i_jIndex, i_Symbole);
+        }
+        protected virtual void OnTurnChange()
+        {
+            TurnChanged?.Invoke(m_CurrentPlayer);
+        }
+        protected virtual void OnScoreChange(Player i_Winner)
+        {
+            ScoreChanged?.Invoke(i_Winner);
         }
         public bool ComputersMove()
         {
@@ -127,6 +138,7 @@ namespace TicTacToeLogicManager
         public bool WinningStatus(out eCellValue o_WinnerSymbole)
         {
             bool isGameOver = false;
+            Player winner;
             o_WinnerSymbole = m_Board.GetWinner();
 
             if (o_WinnerSymbole == eCellValue.Empty)
@@ -137,7 +149,9 @@ namespace TicTacToeLogicManager
             else
             {
                 isGameOver = true;
-                GetPlayerBySymbole(o_WinnerSymbole).IncrementScore();
+                winner = GetPlayerBySymbole(o_WinnerSymbole);
+                winner.IncrementScore();
+                OnScoreChange(winner);
                 // o_WinnerSymbole = X or O -> gameover
             }
 

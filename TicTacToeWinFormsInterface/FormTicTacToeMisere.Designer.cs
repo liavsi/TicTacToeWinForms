@@ -28,63 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel.SuspendLayout();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.labelPlayer2Score = new System.Windows.Forms.Label();
+            this.labelPlayer1Score = new System.Windows.Forms.Label();
+            this.labelPlayer2Name = new System.Windows.Forms.Label();
+            this.labelPlayer1Name = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel
+            // splitContainer1
             // 
-            this.tableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
-            this.tableLayoutPanel.ColumnCount = 4;
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel.Controls.Add(this.button1, 2, 2);
-            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 4;
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(418, 391);
-            this.tableLayoutPanel.TabIndex = 0;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // button1
+            // splitContainer1.Panel2
             // 
-            this.button1.AutoSize = true;
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(226, 228);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.splitContainer1.Panel2.Controls.Add(this.labelPlayer2Score);
+            this.splitContainer1.Panel2.Controls.Add(this.labelPlayer1Score);
+            this.splitContainer1.Panel2.Controls.Add(this.labelPlayer2Name);
+            this.splitContainer1.Panel2.Controls.Add(this.labelPlayer1Name);
+            this.splitContainer1.Size = new System.Drawing.Size(548, 423);
+            this.splitContainer1.SplitterDistance = 341;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // labelPlayer2Score
+            // 
+            this.labelPlayer2Score.AutoSize = true;
+            this.labelPlayer2Score.Location = new System.Drawing.Point(377, 32);
+            this.labelPlayer2Score.Name = "labelPlayer2Score";
+            this.labelPlayer2Score.Size = new System.Drawing.Size(35, 13);
+            this.labelPlayer2Score.TabIndex = 3;
+            this.labelPlayer2Score.Text = "Score";
+            // 
+            // labelPlayer1Score
+            // 
+            this.labelPlayer1Score.AutoSize = true;
+            this.labelPlayer1Score.Location = new System.Drawing.Point(197, 32);
+            this.labelPlayer1Score.Name = "labelPlayer1Score";
+            this.labelPlayer1Score.Size = new System.Drawing.Size(35, 13);
+            this.labelPlayer1Score.TabIndex = 2;
+            this.labelPlayer1Score.Text = "Score";
+            // 
+            // labelPlayer2Name
+            // 
+            this.labelPlayer2Name.AutoSize = true;
+            this.labelPlayer2Name.Location = new System.Drawing.Point(301, 32);
+            this.labelPlayer2Name.Name = "labelPlayer2Name";
+            this.labelPlayer2Name.Size = new System.Drawing.Size(70, 13);
+            this.labelPlayer2Name.TabIndex = 1;
+            this.labelPlayer2Name.Text = "Player2Name";
+            // 
+            // labelPlayer1Name
+            // 
+            this.labelPlayer1Name.AutoSize = true;
+            this.labelPlayer1Name.Location = new System.Drawing.Point(121, 32);
+            this.labelPlayer1Name.Name = "labelPlayer1Name";
+            this.labelPlayer1Name.Size = new System.Drawing.Size(70, 13);
+            this.labelPlayer1Name.TabIndex = 0;
+            this.labelPlayer1Name.Text = "Player1Name";
             // 
             // FormTicTacToeMisere
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(418, 427);
-            this.Controls.Add(this.tableLayoutPanel);
+            this.ClientSize = new System.Drawing.Size(548, 423);
+            this.Controls.Add(this.splitContainer1);
             this.Name = "FormTicTacToeMisere";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TicTacToeMisere";
-            this.tableLayoutPanel.ResumeLayout(false);
-            this.tableLayoutPanel.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label labelPlayer2Name;
+        private System.Windows.Forms.Label labelPlayer1Name;
+        private System.Windows.Forms.Label labelPlayer2Score;
+        private System.Windows.Forms.Label labelPlayer1Score;
     }
 }

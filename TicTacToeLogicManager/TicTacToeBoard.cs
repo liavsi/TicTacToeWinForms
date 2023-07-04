@@ -11,12 +11,11 @@ namespace TicTacToeLogicManager
         X,
         O
     }
-
     public class TicTacToeBoard
     {
         private eCellValue[,] m_Board;
         private int m_size;
-
+        public event Action<int, int> SymbolePlaced;
         public TicTacToeBoard(int i_size)
         {
             m_size = i_size;
@@ -48,6 +47,7 @@ namespace TicTacToeLogicManager
             {
                 m_Board[i_iIndex, i_jIndex] = i_symbol;
                 isPlacedSuccessfully = true;
+                onSymbolePlaced(i_iIndex, i_jIndex);
             }
             else
             {
@@ -55,6 +55,11 @@ namespace TicTacToeLogicManager
             }
 
             return isPlacedSuccessfully;
+        }
+
+        protected virtual void onSymbolePlaced(int i_iIndex, int i_jIndex)
+        {
+            SymbolePlaced?.Invoke(i_jIndex,i_jIndex);
         }
         public bool PlaceEmptySymbole(eCellValue i_symbol, int i_iIndex, int i_jIndex)
         {

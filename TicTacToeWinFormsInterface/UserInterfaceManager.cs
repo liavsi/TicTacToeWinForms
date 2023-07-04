@@ -23,10 +23,11 @@ namespace TicTacToeWinFormsInterface
             if (m_GameSetting.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 int boardSize = m_GameSetting.BoardSize;
+                string player1Name = m_GameSetting.Player1Name;
+                string player2Name = m_GameSetting.Player2Name;
                 m_Logics = new LogicManager(boardSize, m_GameSetting.NumOfPlayers,
-                   m_GameSetting.Player1Name, m_GameSetting.Player2Name);
-                m_BoardUserInterface = new FormTicTacToeMisere(boardSize);
-
+                   player1Name, player2Name);
+                m_BoardUserInterface = new FormTicTacToeMisere(boardSize,player1Name, player2Name);
             }
         }
 

@@ -15,6 +15,7 @@ namespace TicTacToeLogicManager
         public LogicManager(int i_sizeOfBoard, int i_numOfPlayers, string i_Player1Name, string i_Player2Name = "Computer")
         {
             m_Board = new TicTacToeBoard(i_sizeOfBoard);
+            m_Board.SymbolePlaced += this.onSymbolePlaced;
             const bool v_isNotBot = false;
 
             if (i_numOfPlayers == 1)
@@ -89,7 +90,6 @@ namespace TicTacToeLogicManager
 
             if (isSymbolePlaced)
             {
-                onSymbolePlaced(i_iIndex, i_jIndex, m_CurrentPlayer.Symbole);
                 if (m_CurrentPlayer == m_Player1)
                 {
                     m_CurrentPlayer = m_Player2;
@@ -106,7 +106,7 @@ namespace TicTacToeLogicManager
         {
             SymbolePlaced?.Invoke(i_iIndex, i_jIndex, i_Symbole);
         }
-        internal bool ComputersMove()
+        public bool ComputersMove()
         {
             bool validTurn = false;
             int row, col;

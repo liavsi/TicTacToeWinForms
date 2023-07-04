@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using TicTacToeLogicManager;
 
 namespace TicTacToeWinFormsInterface
@@ -50,6 +51,29 @@ namespace TicTacToeWinFormsInterface
         {
             ButtonWithIndex button = sender as ButtonWithIndex;
             m_Logics.PlayersMove(button.Row, button.Column);
+            if (m_Logics.Player2.IsBot)
+            {
+                m_Logics.ComputersMove();
+            }
+            if(m_Logics.WinningStatus(out eCellValue winnerSymbole))
+            {
+                string genericMessage = "\nWould you like to play another round?";
+                string uniqeMessage;
+                if(winnerSymbole == eCellValue.Empty)
+                {
+                    //tie
+                    uniqeMessage = "Tie!";
+                }
+                else
+                {
+                    uniqeMessage = $"The winner is {m_Logics.GetPlayerBySymbole(winnerSymbole).Name}";
+                    // a win for 
+                    // m_Logics.GetPlayerBySymbole(winnerSymbole);
+                }
+                MessageBox.Show(uniqeMessage + genericMessage);
+                m_Logics.ResetGame();
+            }
+
         }
 
         public void PlayGame()

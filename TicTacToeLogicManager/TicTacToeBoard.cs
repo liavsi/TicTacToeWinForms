@@ -15,11 +15,17 @@ namespace TicTacToeLogicManager
     {
         private eCellValue[,] m_Board;
         private int m_size;
+        public event Action<int, int, eCellValue> SymbolePlaced;
+
         public TicTacToeBoard(int i_size)
         {
             m_size = i_size;
             m_Board = new eCellValue[m_size, m_size];
             ResetBoard();
+        }
+        protected virtual void onSymbolePlaced(int i_iIndex, int i_jIndex, eCellValue i_Symbole)
+        {
+            SymbolePlaced?.Invoke(i_iIndex, i_jIndex, i_Symbole);
         }
         public int Size
         {
@@ -35,6 +41,7 @@ namespace TicTacToeLogicManager
             {
                 for (int j = 0; j < m_size; j++)
                 {
+                    onSymbolePlaced(i,j,eCellValue.Empty);
                     m_Board[i, j] = eCellValue.Empty;
                 }
             }
@@ -42,10 +49,11 @@ namespace TicTacToeLogicManager
         public bool PlaceSymbole(eCellValue i_symbol, int i_iIndex, int i_jIndex)
         {
             bool isPlacedSuccessfully = false;
-            if (GetCell(i_iIndex, i_jIndex) == eCellValue.Empty)
+            if (m_Board[i_iIndex, i_jIndex] == eCellValue.Empty)
             {
                 m_Board[i_iIndex, i_jIndex] = i_symbol;
                 isPlacedSuccessfully = true;
+                onSymbolePlaced(i_iIndex,i_jIndex, i_symbol);
             }
             else
             {
@@ -56,25 +64,8 @@ namespace TicTacToeLogicManager
         }
 
 
-        public bool PlaceEmptySymbole(eCellValue i_symbol, int i_iIndex, int i_jIndex)
-        {
-            bool isPlacedSuccessfully = false;
-            if (GetCell(i_iIndex, i_jIndex) != eCellValue.Empty)
-            {
-                m_Board[i_iIndex, i_jIndex] = i_symbol;
-                isPlacedSuccessfully = true;
-            }
-            else
-            {
-                isPlacedSuccessfully = false;
-            }
 
-            return isPlacedSuccessfully;
-        }
-        public eCellValue GetCell(int i_iIndex, int i_jIndex)
-        {
-            return m_Board[i_iIndex, i_jIndex];
-        }
+
         public bool IsPlaceOnBoard()
         {
             bool isNotFull = false;

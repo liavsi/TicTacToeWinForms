@@ -66,9 +66,18 @@ namespace TicTacToeWinFormsInterface
 
         public void Symbole_Placed(int i_iIndex, int i_jIndex, TicTacToeLogicManager.eCellValue i_Symbole)
         {
-            m_Buttons[i_iIndex, i_jIndex].Text = i_Symbole.ToString();
-            m_Buttons[i_iIndex,i_jIndex].BackColor = Color.White;
-            m_Buttons[i_iIndex, i_jIndex].Enabled = false;
+            if (i_Symbole == TicTacToeLogicManager.eCellValue.Empty)
+            {
+                m_Buttons[i_iIndex, i_jIndex].Enabled = true;
+                m_Buttons[i_iIndex, i_jIndex].Text = "";
+                m_Buttons[i_iIndex, i_jIndex].BackColor = Color.White;
+            }
+            else
+            {
+                m_Buttons[i_iIndex, i_jIndex].Text = i_Symbole.ToString();
+                m_Buttons[i_iIndex, i_jIndex].BackColor = Color.LightGray;
+                m_Buttons[i_iIndex, i_jIndex].Enabled = false;
+            }
         }
 
 

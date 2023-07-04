@@ -75,5 +75,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicTacToeLogicManager\TicTacToeLogicManager.csproj">
+      <Project>{90e0ab05-45d1-4745-8ce0-3b84969abc76}</Project>
+      <Name>TicTacToeLogicManager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

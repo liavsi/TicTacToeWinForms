@@ -59,16 +59,12 @@ namespace TicTacToeWinFormsInterface
             }
         }
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-            numericUpDownRight.Value = numericUpDownLeft.Value;
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void numericUpDownRight_ValueChanged(object sender, EventArgs e)
         {
             numericUpDownLeft.Value = numericUpDownRight.Value;
-
         }
+
+
 
         private void checkBoxPlayer2_CheckedChanged(object sender, EventArgs e)
         {
@@ -93,6 +89,9 @@ namespace TicTacToeWinFormsInterface
             this.DialogResult = DialogResult.OK;
         }
 
-
+        private void numericUpDownLeft_ValueChanged(object sender, EventArgs e)
+        {
+            numericUpDownRight.Value = numericUpDownLeft.Value;
+        }
     }
 }

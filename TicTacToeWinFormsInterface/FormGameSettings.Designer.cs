@@ -75,6 +75,7 @@
             this.checkBoxPlayer2.TabIndex = 4;
             this.checkBoxPlayer2.Text = "Player2";
             this.checkBoxPlayer2.UseVisualStyleBackColor = true;
+            this.checkBoxPlayer2.CheckedChanged += new System.EventHandler(this.checkBoxPlayer2_CheckedChanged);
             // 
             // numericUpDownLeft
             // 
@@ -82,6 +83,12 @@
             this.numericUpDownLeft.Name = "numericUpDownLeft";
             this.numericUpDownLeft.Size = new System.Drawing.Size(49, 20);
             this.numericUpDownLeft.TabIndex = 5;
+            this.numericUpDownLeft.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numericUpDownLeft.ValueChanged += new System.EventHandler(this.numericUpDownLeft_ValueChanged);
             // 
             // numericUpDownRight
             // 
@@ -89,6 +96,12 @@
             this.numericUpDownRight.Name = "numericUpDownRight";
             this.numericUpDownRight.Size = new System.Drawing.Size(37, 20);
             this.numericUpDownRight.TabIndex = 6;
+            this.numericUpDownRight.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numericUpDownRight.ValueChanged += new System.EventHandler(this.numericUpDownRight_ValueChanged);
             // 
             // label2
             // 
@@ -116,6 +129,7 @@
             this.buttonStart.TabIndex = 9;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // FormGameSettings
             // 

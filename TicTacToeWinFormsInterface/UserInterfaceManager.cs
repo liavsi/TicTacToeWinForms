@@ -51,7 +51,6 @@ namespace TicTacToeWinFormsInterface
 
         private void ButtonWithIndex_Clicked(object sender, EventArgs e)
         {
-            bool isAnotherRound = false;
             ButtonWithIndex button = sender as ButtonWithIndex;
             m_Logics.PlayersMove(button.Row, button.Column);
             bool isAnotherTurn = checkWinning();
@@ -84,15 +83,18 @@ namespace TicTacToeWinFormsInterface
         {
             string genericMessage = "\nWould you like to play another round?";
             string uniqeMessage;
+            string messageBoxTitle;
             if (i_WinnerSymbole == eCellValue.Empty)
             {
                 uniqeMessage = "Tie!";
+                messageBoxTitle = "A Tie!";
             }
             else
             {
                 uniqeMessage = $"The winner is {m_Logics.GetPlayerBySymbole(i_WinnerSymbole).Name}";
+                messageBoxTitle = "A Win!";
             }
-            DialogResult anotherRound = MessageBox.Show(uniqeMessage + genericMessage,uniqeMessage, MessageBoxButtons.YesNo);
+            DialogResult anotherRound = MessageBox.Show(uniqeMessage + genericMessage,messageBoxTitle, MessageBoxButtons.YesNo);
             return (anotherRound == DialogResult.Yes) ? true : false;
         }
         public void PlayGame()

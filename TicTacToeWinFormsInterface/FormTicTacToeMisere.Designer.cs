@@ -51,15 +51,15 @@
             this.splitContainer.Panel2.Controls.Add(this.labelPlayer1Score);
             this.splitContainer.Panel2.Controls.Add(this.labelPlayer2Name);
             this.splitContainer.Panel2.Controls.Add(this.labelPlayer1Name);
-            this.splitContainer.Size = new System.Drawing.Size(534, 420);
-            this.splitContainer.SplitterDistance = 338;
+            this.splitContainer.Size = new System.Drawing.Size(545, 443);
+            this.splitContainer.SplitterDistance = 356;
             this.splitContainer.TabIndex = 0;
             // 
             // labelPlayer2Score
             // 
-            this.labelPlayer2Score.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelPlayer2Score.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPlayer2Score.AutoSize = true;
-            this.labelPlayer2Score.Location = new System.Drawing.Point(363, 32);
+            this.labelPlayer2Score.Location = new System.Drawing.Point(363, 31);
             this.labelPlayer2Score.Name = "labelPlayer2Score";
             this.labelPlayer2Score.Size = new System.Drawing.Size(35, 13);
             this.labelPlayer2Score.TabIndex = 3;
@@ -67,10 +67,10 @@
             // 
             // labelPlayer1Score
             // 
-            this.labelPlayer1Score.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelPlayer1Score.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPlayer1Score.AutoSize = true;
             this.labelPlayer1Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayer1Score.Location = new System.Drawing.Point(183, 32);
+            this.labelPlayer1Score.Location = new System.Drawing.Point(183, 31);
             this.labelPlayer1Score.Name = "labelPlayer1Score";
             this.labelPlayer1Score.Size = new System.Drawing.Size(40, 13);
             this.labelPlayer1Score.TabIndex = 2;
@@ -78,9 +78,9 @@
             // 
             // labelPlayer2Name
             // 
-            this.labelPlayer2Name.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelPlayer2Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPlayer2Name.AutoSize = true;
-            this.labelPlayer2Name.Location = new System.Drawing.Point(287, 32);
+            this.labelPlayer2Name.Location = new System.Drawing.Point(287, 31);
             this.labelPlayer2Name.Name = "labelPlayer2Name";
             this.labelPlayer2Name.Size = new System.Drawing.Size(70, 13);
             this.labelPlayer2Name.TabIndex = 1;
@@ -88,10 +88,10 @@
             // 
             // labelPlayer1Name
             // 
-            this.labelPlayer1Name.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelPlayer1Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPlayer1Name.AutoSize = true;
             this.labelPlayer1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayer1Name.Location = new System.Drawing.Point(107, 32);
+            this.labelPlayer1Name.Location = new System.Drawing.Point(107, 31);
             this.labelPlayer1Name.Name = "labelPlayer1Name";
             this.labelPlayer1Name.Size = new System.Drawing.Size(81, 13);
             this.labelPlayer1Name.TabIndex = 0;
@@ -102,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(534, 420);
+            this.ClientSize = new System.Drawing.Size(545, 443);
             this.Controls.Add(this.splitContainer);
             this.Name = "FormTicTacToeMisere";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

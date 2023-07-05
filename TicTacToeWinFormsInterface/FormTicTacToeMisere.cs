@@ -35,7 +35,7 @@ namespace TicTacToeWinFormsInterface
                     button.Dock = DockStyle.Fill;
                     button.Row = i;
                     button.Column = j;
-                    button.TabIndex = i* i_size +j;
+                    button.TabIndex = j* i_size +i;
                     m_Buttons[i,j] = button;
                     
                     this.m_TableLayoutPanel.Controls.Add(button,i, j);

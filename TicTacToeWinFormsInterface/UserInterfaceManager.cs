@@ -51,33 +51,50 @@ namespace TicTacToeWinFormsInterface
 
         private void ButtonWithIndex_Clicked(object sender, EventArgs e)
         {
+            bool isAnotherRound = false;
             ButtonWithIndex button = sender as ButtonWithIndex;
             m_Logics.PlayersMove(button.Row, button.Column);
-            if (m_Logics.Player2.IsBot)
+            bool isAnotherTurn = checkWinning();
+            if (m_Logics.Player2.IsBot && isAnotherTurn)
             {
                 m_Logics.ComputersMove();
+                checkWinning();
             }
-            if(m_Logics.WinningStatus(out eCellValue winnerSymbole))
+        }
+
+        private  bool checkWinning()
+        {
+            bool isAnotherTurn = true;
+            if (m_Logics.WinningStatus(out eCellValue winnerSymbole))
             {
-                string genericMessage = "\nWould you like to play another round?";
-                string uniqeMessage;
-                if(winnerSymbole == eCellValue.Empty)
+                bool isAnotherRound = gameEndInterface(winnerSymbole);
+                if (isAnotherRound)
                 {
-                    //tie
-                    uniqeMessage = "Tie!";
+                    m_Logics.ResetGame();
                 }
                 else
                 {
-                    uniqeMessage = $"The winner is {m_Logics.GetPlayerBySymbole(winnerSymbole).Name}";
-                    // a win for 
-                    // m_Logics.GetPlayerBySymbole(winnerSymbole);
+                    m_BoardUserInterface.Close();
                 }
-                MessageBox.Show(uniqeMessage + genericMessage);
-                m_Logics.ResetGame();
+                isAnotherTurn = false;
             }
-
+            return isAnotherTurn;
         }
-
+        private bool gameEndInterface(eCellValue i_WinnerSymbole)
+        {
+            string genericMessage = "\nWould you like to play another round?";
+            string uniqeMessage;
+            if (i_WinnerSymbole == eCellValue.Empty)
+            {
+                uniqeMessage = "Tie!";
+            }
+            else
+            {
+                uniqeMessage = $"The winner is {m_Logics.GetPlayerBySymbole(i_WinnerSymbole).Name}";
+            }
+            DialogResult anotherRound = MessageBox.Show(uniqeMessage + genericMessage,uniqeMessage, MessageBoxButtons.YesNo);
+            return (anotherRound == DialogResult.Yes) ? true : false;
+        }
         public void PlayGame()
         {
             m_BoardUserInterface.ShowDialog();

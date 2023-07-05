@@ -93,5 +93,7 @@ namespace TicTacToeWinFormsInterface
         {
             numericUpDownRight.Value = numericUpDownLeft.Value;
         }
+
+
     }
 }

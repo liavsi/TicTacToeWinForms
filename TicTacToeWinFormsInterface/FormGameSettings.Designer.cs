@@ -48,17 +48,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(62, 70);
             this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Player1";
+            this.label1.Text = "Player1:";
             // 
             // textBoxPlayer1
             // 
             this.textBoxPlayer1.Location = new System.Drawing.Point(142, 67);
             this.textBoxPlayer1.Name = "textBoxPlayer1";
             this.textBoxPlayer1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxPlayer1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPlayer1.Size = new System.Drawing.Size(140, 20);
             this.textBoxPlayer1.TabIndex = 2;
             // 
             // textBoxPlayer2
@@ -68,7 +67,7 @@
             this.textBoxPlayer2.Location = new System.Drawing.Point(142, 109);
             this.textBoxPlayer2.Name = "textBoxPlayer2";
             this.textBoxPlayer2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxPlayer2.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPlayer2.Size = new System.Drawing.Size(140, 20);
             this.textBoxPlayer2.TabIndex = 3;
             // 
             // checkBoxPlayer2
@@ -76,16 +75,15 @@
             this.checkBoxPlayer2.AutoSize = true;
             this.checkBoxPlayer2.Location = new System.Drawing.Point(62, 109);
             this.checkBoxPlayer2.Name = "checkBoxPlayer2";
-            this.checkBoxPlayer2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBoxPlayer2.Size = new System.Drawing.Size(61, 17);
+            this.checkBoxPlayer2.Size = new System.Drawing.Size(64, 17);
             this.checkBoxPlayer2.TabIndex = 4;
-            this.checkBoxPlayer2.Text = "Player2";
+            this.checkBoxPlayer2.Text = "Player2:";
             this.checkBoxPlayer2.UseVisualStyleBackColor = true;
             this.checkBoxPlayer2.CheckedChanged += new System.EventHandler(this.checkBoxPlayer2_CheckedChanged);
             // 
             // numericUpDownLeft
             // 
-            this.numericUpDownLeft.Location = new System.Drawing.Point(94, 188);
+            this.numericUpDownLeft.Location = new System.Drawing.Point(102, 182);
             this.numericUpDownLeft.Name = "numericUpDownLeft";
             this.numericUpDownLeft.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.numericUpDownLeft.Size = new System.Drawing.Size(37, 20);
@@ -99,7 +97,7 @@
             // 
             // numericUpDownRight
             // 
-            this.numericUpDownRight.Location = new System.Drawing.Point(232, 190);
+            this.numericUpDownRight.Location = new System.Drawing.Point(234, 184);
             this.numericUpDownRight.Name = "numericUpDownRight";
             this.numericUpDownRight.Size = new System.Drawing.Size(37, 20);
             this.numericUpDownRight.TabIndex = 6;
@@ -112,7 +110,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(51, 190);
+            this.label2.Location = new System.Drawing.Point(59, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 7;
@@ -120,7 +118,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(189, 192);
+            this.label3.Location = new System.Drawing.Point(191, 186);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 8;
@@ -128,7 +126,7 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
+            this.buttonStart.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStart.Location = new System.Drawing.Point(38, 250);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(262, 28);
@@ -140,7 +138,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 149);
+            this.label4.Location = new System.Drawing.Point(38, 149);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 10;
@@ -160,7 +158,7 @@
             this.AcceptButton = this.buttonStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 319);
+            this.ClientSize = new System.Drawing.Size(336, 319);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonStart);

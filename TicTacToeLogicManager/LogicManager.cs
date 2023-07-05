@@ -160,6 +160,7 @@ namespace TicTacToeLogicManager
         public void ResetGame()
         {
             m_CurrentPlayer = m_Player1;
+            OnTurnChange();
             m_Board.ResetBoard();
         }
 

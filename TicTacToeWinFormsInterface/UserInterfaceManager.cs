@@ -64,6 +64,7 @@ namespace TicTacToeWinFormsInterface
         private  bool checkWinning()
         {
             bool isAnotherTurn = true;
+
             if (m_Logics.WinningStatus(out eCellValue winnerSymbole))
             {
                 bool isAnotherRound = gameEndInterface(winnerSymbole);
@@ -77,6 +78,7 @@ namespace TicTacToeWinFormsInterface
                 }
                 isAnotherTurn = false;
             }
+
             return isAnotherTurn;
         }
         private bool gameEndInterface(eCellValue i_WinnerSymbole)
@@ -84,6 +86,7 @@ namespace TicTacToeWinFormsInterface
             string genericMessage = "\nWould you like to play another round?";
             string uniqeMessage;
             string messageBoxTitle;
+
             if (i_WinnerSymbole == eCellValue.Empty)
             {
                 uniqeMessage = "Tie!";
@@ -95,6 +98,7 @@ namespace TicTacToeWinFormsInterface
                 messageBoxTitle = "A Win!";
             }
             DialogResult anotherRound = MessageBox.Show(uniqeMessage + genericMessage,messageBoxTitle, MessageBoxButtons.YesNo);
+
             return (anotherRound == DialogResult.Yes) ? true : false;
         }
         public void PlayGame()

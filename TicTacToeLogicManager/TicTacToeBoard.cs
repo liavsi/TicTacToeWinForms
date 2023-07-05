@@ -138,6 +138,7 @@ namespace TicTacToeLogicManager
                 }
                 counterO = counterX = 0;
             }
+
             return winnerSymbole;
         }
         private eCellValue CheckWinnCrossLeftToRight()
@@ -191,6 +192,7 @@ namespace TicTacToeLogicManager
             {
                 winnerSymbole = eCellValue.O;
             }
+
             return winnerSymbole;
         }
         private eCellValue CheckWinnInAColumn()
@@ -225,14 +227,6 @@ namespace TicTacToeLogicManager
                 counterO = counterX = 0;
             }
             return winnerSymbole;
-        }
-        
-        public eCellValue[,] BoardState
-        {
-            get
-            {
-                return m_Board;
-            }
         }
     }
 }
